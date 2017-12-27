@@ -1,0 +1,17 @@
+<form [formGroup]="createProjectForm" (ngSubmit)="onSubmit(createProjectForm)" novalidate>
+  <div class="form-group">
+
+    <label class="center-block">Title:
+      <div class="errors" *ngIf="createProjectForm.get('title').errors && createProjectForm.get('title').touched">
+        <span class="error" *ngIf="createProjectForm.get('title').hasError('required')">
+          Name is required
+        </span>
+        <span class="error" *ngIf="createProjectForm.get('title').hasError('minlength')">
+          Minimum of 2 characters
+        </span>
+      </div>
+
+      <input class="form-control" formControlName="title">
+    </label>
+  </div>
+</form>
