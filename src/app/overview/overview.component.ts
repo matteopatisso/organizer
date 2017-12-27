@@ -15,9 +15,9 @@ export class OverviewComponent implements OnInit {
   constructor(private repository: RepositoryService) {}
 
   ngOnInit() {
-
-    this.repository.addProject(new Project("myTitle"));
-
+    this.repository.allProjects.subscribe((allProjects) => {
+      this.allProjects = allProjects || [];
+    });
 
     this.repository
       .getAllProjects()
